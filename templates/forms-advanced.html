@@ -4,586 +4,605 @@
 <div class="content mt-3">
     <div class="animated fadeIn">
         <div class="row">
-            <div class="col-lg-6">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="card-header" style="margin-bottom: 50px;">
-                            <strong class="card-title">登记信息</strong>
-                        </div>
-                        <div class="row form-group">
-                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">业务人员</label>
+            <form method="POST" enctype='multipart/form-data'>
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="card-header" style="margin-bottom: 50px;">
+                                <strong class="card-title">登记信息</strong>
                             </div>
-                            <div class="col-12 col-md-9"><input type="text" id="name" name="text-input"
-                                                                placeholder="姓名" class="form-control">
-                            </div>
-                        </div><!-- 输入框体 -->
-                        <div class="row form-group">
-                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">日期</label>
-                            </div>
-                            <div class="col-12 col-md-9"><input type="text" id="date" name="text-input"
-                                                                placeholder="2018年01月01日" class="form-control">
-                            </div>
-                        </div><!-- 输入框体 -->
-                        <div class="card-header" style="margin-bottom: 50px;">
-                            <strong class="card-title">企业信息</strong>
-                        </div>
-                        <div class="row form-group">
-                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">企业名称</label>
-                            </div>
-                            <div class="col-12 col-md-9"><input type="text" id="company" name="text-input"
-                                                                placeholder="XXX有限公司" class="form-control">
-                            </div>
-                        </div><!-- 输入框体 -->
-                        <div class="row form-group">
-                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">业主电话</label>
-                            </div>
-                            <div class="col-12 col-md-9"><input type="text" id="phone" name="text-input"
-                                                                placeholder="131XXXXXXXX" class="form-control">
-                            </div>
-                        </div><!-- 输入框体 -->
-                        <div class="row form-group">
-                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">业主姓名</label>
-                            </div>
-                            <div class="col-12 col-md-9"><input type="text" id="username" name="text-input"
-                                                                placeholder="张三" class="form-control">
-                            </div>
-                        </div><!-- 输入框体 -->
-                        <div class="row form-group">
-                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">业主职务</label>
-                            </div>
-                            <div class="col-12 col-md-9"><input type="text" id="employ" name="text-input"
-                                                                placeholder="总经理" class="form-control">
-                            </div>
-                        </div><!-- 输入框体 -->
-                        <div class="row form-group">
-                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">企业地址</label>
-                            </div>
-                            <div class="col-12 col-md-9"><input type="text" id="addr" name="text-input"
-                                                                placeholder="XX街XX路XX号" class="form-control">
-                            </div>
-                        </div><!-- 输入框体 -->
-                        <div class="row form-group">
-                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">经纬度</label>
-                            </div>
-                            <div class="col-12 col-md-9"><input type="text" id="loc" name="text-input"
-                                                                placeholder="31.22,44.55" class="form-control">
-                            </div>
-                        </div><!-- 输入框体 -->
-                        <div class="card-header" style="margin-bottom: 50px;">
-                            <strong class="card-title">环评情况</strong>
-                        </div>
-                        <div class="row form-group">
-                            <div class="col col-md-3"><label class=" form-control-label">环评情况</label>
-                            </div>
-                            <div class="col col-md-9">
-                                <div class="form-check-inline form-check">
-                                    <label for="inline-radio1" class="form-check-label ">
-                                        <input type="radio" id="has_hp" name="inline-hp"
-                                               value="有"
-                                               class="form-check-input">有
-                                    </label>
-                                    <label for="inline-radio2" class="form-check-label ">
-                                        <input type="radio" id="no_hp" name="inline-hp"
-                                               value="有"
-                                               class="form-check-input">无
-                                    </label>
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="name"
+                                                                 class=" form-control-label">业务人员</label>
                                 </div>
-                            </div>
-                        </div><!-- 横向选择 -->
-                        <div class="row form-group">
-                            <div class="col col-md-3"><label class=" form-control-label">报告书</label>
-                            </div>
-                            <div class="col col-md-9">
-                                <div class="form-check-inline form-check">
-                                    <label for="inline-radio1" class="form-check-label ">
-                                        <input type="radio" id="has_bgs" name="inline-bgs"
-                                               value="有"
-                                               class="form-check-input">有
-                                    </label>
-                                    <label for="inline-radio2" class="form-check-label ">
-                                        <input type="radio" id="no_bgs" name="inline-bgs"
-                                               value="有"
-                                               class="form-check-input">无
-                                    </label>
+                                <div class="col-12 col-md-9"><input type="text" id="name" name="name"
+                                                                    placeholder="姓名" class="form-control">
                                 </div>
-                            </div>
-                        </div><!-- 横向选择 -->
-                        <div class="row form-group">
-                            <div class="col col-md-3"><label class=" form-control-label">报告表</label>
-                            </div>
-                            <div class="col col-md-9">
-                                <div class="form-check-inline form-check">
-                                    <label for="inline-radio1" class="form-check-label ">
-                                        <input type="radio" id="has_bgb" name="inline-bgb"
-                                               value="有"
-                                               class="form-check-input">有
-                                    </label>
-                                    <label for="inline-radio2" class="form-check-label ">
-                                        <input type="radio" id="no_bgb" name="inline-bgb"
-                                               value="有"
-                                               class="form-check-input">无
-                                    </label>
+                            </div><!-- 输入框体 -->
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="date" class=" form-control-label">日期</label>
                                 </div>
-                            </div>
-                        </div><!-- 横向选择 -->
-                        <div class="row form-group">
-                            <div class="col col-md-3"><label class=" form-control-label">登记表</label>
-                            </div>
-                            <div class="col col-md-9">
-                                <div class="form-check-inline form-check">
-                                    <label for="inline-radio1" class="form-check-label ">
-                                        <input type="radio" id="has_djb" name="inline-djb"
-                                               value="有"
-                                               class="form-check-input">有
-                                    </label>
-                                    <label for="inline-radio2" class="form-check-label ">
-                                        <input type="radio" id="no_djb" name="inline-djb"
-                                               value="有"
-                                               class="form-check-input">无
-                                    </label>
+                                <div class="col-12 col-md-9"><input type="text" id="date" name="date"
+                                                                    placeholder="2018年01月01日" class="form-control">
                                 </div>
+                            </div><!-- 输入框体 -->
+                            <div class="card-header" style="margin-bottom: 50px;">
+                                <strong class="card-title">企业信息</strong>
                             </div>
-                        </div><!-- 横向选择 -->
-                        <div class="row form-group">
-                            <div class="col col-md-3"><label class=" form-control-label">是否现场相符</label>
-                            </div>
-                            <div class="col col-md-9">
-                                <div class="form-check-inline form-check">
-                                    <label for="inline-radio1" class="form-check-label ">
-                                        <input type="radio" id="has_xc" name="xc"
-                                               value="有"
-                                               class="form-check-input">否
-                                    </label>
-                                    <label for="inline-radio2" class="form-check-label ">
-                                        <input type="radio" id="no_xc" name="xc"
-                                               value="有"
-                                               class="form-check-input">不否
-                                    </label>
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="company"
+                                                                 class=" form-control-label">企业名称</label>
                                 </div>
-                            </div>
-                        </div><!-- 横向选择 -->
-                        <div class="row form-group">
-                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">不否说明</label>
-                            </div>
-                            <div class="col-12 col-md-9"><input type="text" id="bf_desc" name="text-input"
-                                                                placeholder="" class="form-control">
-                            </div>
-                        </div><!-- 输入框体 -->
-                        <div class="card-header" style="margin-bottom: 50px;">
-                            <strong class="card-title">验收情况</strong>
-                        </div>
-                        <div class="row form-group">
-                            <div class="col col-md-3"><label class=" form-control-label">验收情况</label>
-                            </div>
-                            <div class="col col-md-9">
-                                <div class="form-check-inline form-check">
-                                    <label for="inline-radio1" class="form-check-label ">
-                                        <input type="radio" id="has_ys" name="ys"
-                                               value="有"
-                                               class="form-check-input">有
-                                    </label>
-                                    <label for="inline-radio2" class="form-check-label ">
-                                        <input type="radio" id="no_ys" name="ys"
-                                               value="有"
-                                               class="form-check-input">无
-                                    </label>
+                                <div class="col-12 col-md-9"><input type="text" id="company" name="companyname"
+                                                                    placeholder="XXX有限公司" class="form-control">
                                 </div>
-                            </div>
-                        </div><!-- 横向选择 -->
-                        <div class="row form-group">
-                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">为什么没验收</label>
-                            </div>
-                            <div class="col-12 col-md-9"><input type="text" id="ys_desc" name="text-input"
-                                                                placeholder="" class="form-control">
-                            </div>
-                        </div><!-- 输入框体 -->
-                        <div class="card-header" style="margin-bottom: 50px;">
-                            <strong class="card-title">生产工艺</strong>
-                        </div>
-                        <div class="row form-group">
-                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">生产工艺</label>
-                            </div>
-                            <div class="col-12 col-md-9"><input type="text" id="scgy" name="text-input"
-                                                                placeholder="" class="form-control">
-                            </div>
-                        </div><!-- 输入框体 -->
-                        <div class="row form-group">
-                            <div class="col col-md-3"><label for="text-input"
-                                                             class=" form-control-label">原辅料名称及数量</label>
-                            </div>
-                            <div class="col-12 col-md-9"><input type="text" id="yuanliao" name="text-input"
-                                                                placeholder="" class="form-control">
-                            </div>
-                        </div><!-- 输入框体 -->
-                        <div class="row form-group">
-                            <div class="col col-md-3"><label for="text-input"
-                                                             class=" form-control-label">成品的名称及数量</label>
-                            </div>
-                            <div class="col-12 col-md-9"><input type="text" id="chengping" name="text-input"
-                                                                placeholder="" class="form-control">
-                            </div>
-                        </div><!-- 输入框体 -->
-                        <div class="row form-group">
-                            <div class="col col-md-3"><label class=" form-control-label">是否涉威危险品及重金属</label>
-                            </div>
-                            <div class="col col-md-9">
-                                <div class="form-check-inline form-check">
-                                    <label for="inline-radio1" class="form-check-label ">
-                                        <input type="radio" id="has_weixian" name="weixian"
-                                               value="是"
-                                               class="form-check-input">是
-                                    </label>
-                                    <label for="inline-radio2" class="form-check-label ">
-                                        <input type="radio" id="no_weixian" name="weixian"
-                                               value="有"
-                                               class="form-check-input">不是
-                                    </label>
+                            </div><!-- 输入框体 -->
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="phone"
+                                                                 class=" form-control-label">业主电话</label>
                                 </div>
-                            </div>
-                        </div><!-- 横向选择 -->
-                        <div class="row form-group">
-                            <div class="col col-md-3"><label class=" form-control-label">是否省、市重点污染企业</label>
-                            </div>
-                            <div class="col col-md-9">
-                                <div class="form-check-inline form-check">
-                                    <label for="inline-radio1" class="form-check-label ">
-                                        <input type="radio" id="has_zhongdianwuran" name="zhongdianwuran"
-                                               value="是"
-                                               class="form-check-input">是
-                                    </label>
-                                    <label for="inline-radio2" class="form-check-label ">
-                                        <input type="radio" id="no_zhongdianwuran" name="zhongdianwuran"
-                                               value="有"
-                                               class="form-check-input">不是
-                                    </label>
+                                <div class="col-12 col-md-9"><input type="text" id="phone" name="userphone"
+                                                                    placeholder="131XXXXXXXX" class="form-control">
                                 </div>
-                            </div>
-                        </div><!-- 横向选择 -->
-                        <div class="row form-group">
-                            <div class="col col-md-3"><label class=" form-control-label">环境应急预案有无编写</label>
-                            </div>
-                            <div class="col col-md-9">
-                                <div class="form-check-inline form-check">
-                                    <label for="inline-radio1" class="form-check-label ">
-                                        <input type="radio" id="has-huanjingyingji" name="inline-huanjingyingji"
-                                               value="有"
-                                               class="form-check-input">有
-                                    </label>
-                                    <label for="inline-radio2" class="form-check-label ">
-                                        <input type="radio" id="no-huanjingyingji" name="inline-huanjingyingji"
-                                               value="没有"
-                                               class="form-check-input">没有
-                                    </label>
+                            </div><!-- 输入框体 -->
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="username"
+                                                                 class=" form-control-label">业主姓名</label>
                                 </div>
-                            </div>
-                        </div><!-- 横向选择 -->
-                        <div class="row form-group">
-                            <div class="col col-md-3"><label class=" form-control-label">清洁生产有无编写</label>
-                            </div>
-                            <div class="col col-md-9">
-                                <div class="form-check-inline form-check">
-                                    <label for="inline-radio1" class="form-check-label ">
-                                        <input type="radio" id="has-qingjie" name="inline-qingjie"
-                                               value="有"
-                                               class="form-check-input">有
-                                    </label>
-                                    <label for="inline-radio2" class="form-check-label ">
-                                        <input type="radio" id="no-qingjie" name="inline-qingjie"
-                                               value="没有"
-                                               class="form-check-input">没有
-                                    </label>
+                                <div class="col-12 col-md-9"><input type="text" id="username" name="username"
+                                                                    placeholder="张三" class="form-control">
                                 </div>
+                            </div><!-- 输入框体 -->
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="employ"
+                                                                 class=" form-control-label">业主职务</label>
+                                </div>
+                                <div class="col-12 col-md-9"><input type="text" id="employ" name="userepl"
+                                                                    placeholder="总经理" class="form-control">
+                                </div>
+                            </div><!-- 输入框体 -->
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="addr"
+                                                                 class=" form-control-label">企业地址</label>
+                                </div>
+                                <div class="col-12 col-md-9"><input type="text" id="addr" name="companylocation"
+                                                                    placeholder="XX街XX路XX号" class="form-control">
+                                </div>
+                            </div><!-- 输入框体 -->
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="loc"
+                                                                 class=" form-control-label">经纬度</label>
+                                </div>
+                                <div class="col-12 col-md-9"><input type="text" id="loc" name="latlng"
+                                                                    placeholder="31.22,44.55" class="form-control">
+                                </div>
+                            </div><!-- 输入框体 -->
+                            <div class="card-header" style="margin-bottom: 50px;">
+                                <strong class="card-title">环评情况</strong>
                             </div>
-                        </div><!-- 横向选择 -->
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label class=" form-control-label">环评情况</label>
+                                </div>
+                                <div class="col col-md-9">
+                                    <div class="form-check-inline form-check">
+                                        <label for="has_hp" class="form-check-label ">
+                                            <input type="radio" id="has_hp" name="huanping"
+                                                   value="有"
+                                                   class="form-check-input">有
+                                        </label>
+                                        <label for="no_hp" class="form-check-label ">
+                                            <input type="radio" id="no_hp" name="huanping"
+                                                   value="无"
+                                                   class="form-check-input">无
+                                        </label>
+                                    </div>
+                                </div>
+                            </div><!-- 横向选择 -->
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label class=" form-control-label">报告书</label>
+                                </div>
+                                <div class="col col-md-9">
+                                    <div class="form-check-inline form-check">
+                                        <label for="has_bgs" class="form-check-label ">
+                                            <input type="radio" id="has_bgs" name="reportbook"
+                                                   value="有"
+                                                   class="form-check-input">有
+                                        </label>
+                                        <label for="no_bgs" class="form-check-label ">
+                                            <input type="radio" id="no_bgs" name="reportbook"
+                                                   value="无"
+                                                   class="form-check-input">无
+                                        </label>
+                                    </div>
+                                </div>
+                            </div><!-- 横向选择 -->
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label class=" form-control-label">报告表</label>
+                                </div>
+                                <div class="col col-md-9">
+                                    <div class="form-check-inline form-check">
+                                        <label for="has_bgb" class="form-check-label ">
+                                            <input type="radio" id="has_bgb" name="reporttable"
+                                                   value="有"
+                                                   class="form-check-input">有
+                                        </label>
+                                        <label for="no_bgb" class="form-check-label ">
+                                            <input type="radio" id="no_bgb" name="reporttable"
+                                                   value="无"
+                                                   class="form-check-input">无
+                                        </label>
+                                    </div>
+                                </div>
+                            </div><!-- 横向选择 -->
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label class=" form-control-label">登记表</label>
+                                </div>
+                                <div class="col col-md-9">
+                                    <div class="form-check-inline form-check">
+                                        <label for="has_djb" class="form-check-label ">
+                                            <input type="radio" id="has_djb" name="dengjitable"
+                                                   value="有"
+                                                   class="form-check-input">有
+                                        </label>
+                                        <label for="no_djb" class="form-check-label ">
+                                            <input type="radio" id="no_djb" name="dengjitable"
+                                                   value="无"
+                                                   class="form-check-input">无
+                                        </label>
+                                    </div>
+                                </div>
+                            </div><!-- 横向选择 -->
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label class=" form-control-label">是否现场相符</label>
+                                </div>
+                                <div class="col col-md-9">
+                                    <div class="form-check-inline form-check">
+                                        <label for="has_xc" class="form-check-label ">
+                                            <input type="radio" id="has_xc" name="xianchangxiangfu"
+                                                   value="否"
+                                                   class="form-check-input">否
+                                        </label>
+                                        <label for="no_xc" class="form-check-label ">
+                                            <input type="radio" id="no_xc" name="xianchangxiangfu"
+                                                   value="不否"
+                                                   class="form-check-input">不否
+                                        </label>
+                                    </div>
+                                </div>
+                            </div><!-- 横向选择 -->
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="bf_desc"
+                                                                 class=" form-control-label">不否说明</label>
+                                </div>
+                                <div class="col-12 col-md-9"><input type="text" id="bf_desc"
+                                                                    name="xianchangxiangfu_desc"
+                                                                    placeholder="" class="form-control">
+                                </div>
+                            </div><!-- 输入框体 -->
+                            <div class="card-header" style="margin-bottom: 50px;">
+                                <strong class="card-title">验收情况</strong>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label class=" form-control-label">验收情况</label>
+                                </div>
+                                <div class="col col-md-9">
+                                    <div class="form-check-inline form-check">
+                                        <label for="has_ys" class="form-check-label ">
+                                            <input type="radio" id="has_ys" name="yanshou"
+                                                   value="有"
+                                                   class="form-check-input">有
+                                        </label>
+                                        <label for="no_ys" class="form-check-label ">
+                                            <input type="radio" id="no_ys" name="yanshou"
+                                                   value="无"
+                                                   class="form-check-input">无
+                                        </label>
+                                    </div>
+                                </div>
+                            </div><!-- 横向选择 -->
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="ys_desc"
+                                                                 class=" form-control-label">为什么没验收</label>
+                                </div>
+                                <div class="col-12 col-md-9"><input type="text" id="ys_desc" name="yanshou_desc"
+                                                                    placeholder="" class="form-control">
+                                </div>
+                            </div><!-- 输入框体 -->
+                            <div class="card-header" style="margin-bottom: 50px;">
+                                <strong class="card-title">生产工艺</strong>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="scgy"
+                                                                 class=" form-control-label">生产工艺</label>
+                                </div>
+                                <div class="col-12 col-md-9"><input type="text" id="scgy" name="shengchangongyi"
+                                                                    placeholder="" class="form-control">
+                                </div>
+                            </div><!-- 输入框体 -->
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="yuanliao"
+                                                                 class=" form-control-label">原辅料名称及数量</label>
+                                </div>
+                                <div class="col-12 col-md-9"><input type="text" id="yuanliao" name="yuanliang"
+                                                                    placeholder="" class="form-control">
+                                </div>
+                            </div><!-- 输入框体 -->
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="chengping"
+                                                                 class=" form-control-label">成品的名称及数量</label>
+                                </div>
+                                <div class="col-12 col-md-9"><input type="text" id="chengping" name="chengping"
+                                                                    placeholder="" class="form-control">
+                                </div>
+                            </div><!-- 输入框体 -->
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label class=" form-control-label">是否涉威危险品及重金属</label>
+                                </div>
+                                <div class="col col-md-9">
+                                    <div class="form-check-inline form-check">
+                                        <label for="has_weixian" class="form-check-label ">
+                                            <input type="radio" id="has_weixian" name="weixianping"
+                                                   value="是"
+                                                   class="form-check-input">是
+                                        </label>
+                                        <label for="no_weixian" class="form-check-label ">
+                                            <input type="radio" id="no_weixian" name="weixianping"
+                                                   value="不是"
+                                                   class="form-check-input">不是
+                                        </label>
+                                    </div>
+                                </div>
+                            </div><!-- 横向选择 -->
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label class=" form-control-label">是否省、市重点污染企业</label>
+                                </div>
+                                <div class="col col-md-9">
+                                    <div class="form-check-inline form-check">
+                                        <label for="has_zhongdianwuran" class="form-check-label ">
+                                            <input type="radio" id="has_zhongdianwuran" name="wuranqingkuang"
+                                                   value="是"
+                                                   class="form-check-input">是
+                                        </label>
+                                        <label for="no_zhongdianwuran" class="form-check-label ">
+                                            <input type="radio" id="no_zhongdianwuran" name="wuranqingkuang"
+                                                   value="不是"
+                                                   class="form-check-input">不是
+                                        </label>
+                                    </div>
+                                </div>
+                            </div><!-- 横向选择 -->
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label class=" form-control-label">环境应急预案有无编写</label>
+                                </div>
+                                <div class="col col-md-9">
+                                    <div class="form-check-inline form-check">
+                                        <label for="has-huanjingyingji" class="form-check-label ">
+                                            <input type="radio" id="has-huanjingyingji" name="huanjingjijinyuyan"
+                                                   value="有"
+                                                   class="form-check-input">有
+                                        </label>
+                                        <label for="no-huanjingyingji" class="form-check-label ">
+                                            <input type="radio" id="no-huanjingyingji" name="huanjingjijinyuyan"
+                                                   value="没有"
+                                                   class="form-check-input">没有
+                                        </label>
+                                    </div>
+                                </div>
+                            </div><!-- 横向选择 -->
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label class=" form-control-label">清洁生产有无编写</label>
+                                </div>
+                                <div class="col col-md-9">
+                                    <div class="form-check-inline form-check">
+                                        <label for="has-qingjie" class="form-check-label ">
+                                            <input type="radio" id="has-qingjie" name="qingjiebianhao"
+                                                   value="有"
+                                                   class="form-check-input">有
+                                        </label>
+                                        <label for="no-qingjie" class="form-check-label ">
+                                            <input type="radio" id="no-qingjie" name="qingjiebianhao"
+                                                   value="没有"
+                                                   class="form-check-input">没有
+                                        </label>
+                                    </div>
+                                </div>
+                            </div><!-- 横向选择 -->
 
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="card-header" style="margin-bottom: 50px;">
-                            <strong class="card-title">污水情况</strong>
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="card-header" style="margin-bottom: 50px;">
+                                <strong class="card-title">污水情况</strong>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label class=" form-control-label">污水情况</label>
+                                </div>
+                                <div class="col col-md-9">
+                                    <div class="form-check-inline form-check">
+                                        <label for="has-wushui" class="form-check-label ">
+                                            <input type="radio" id="has-wushui" name="wushuiqingkuang"
+                                                   value="有"
+                                                   class="form-check-input">有
+                                        </label>
+                                        <label for="no-wushui" class="form-check-label ">
+                                            <input type="radio" id="no-wushui" name="wushuiqingkuang"
+                                                   value="无"
+                                                   class="form-check-input">无
+                                        </label>
+                                    </div>
+                                </div>
+                            </div><!-- 横向选择 -->
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="dunwei" class=" form-control-label">吨位</label>
+                                </div>
+                                <div class="col-12 col-md-9"><input type="text" id="dunwei" name="dunwei"
+                                                                    placeholder="t/d" class="form-control">
+                                </div>
+                            </div><!-- 输入框体 -->
+                            <div class="row form-group">
+                                <div style="width:100%;padding:2%"><label class=" form-control-label">污水处理工艺：隔油池 →调节池
+                                    →混淋气浮
+                                    →铁碳微电解
+                                    →芬顿 →厌氧塔 →水解酸化1级 2级 →接触氧化池1级 2级 →二沉池 →芬顿 →混淋沉淀 →排放池 →清水池 →巴氏尔排放口 →超声波流量计 →PH计
+                                    →在线设备填写</label>
+                                </div>
+                                <br>
+                                <div class="col col-md-9">
+                                    <div class="form-check-inline form-check">
+                                        <label for="has-wushuichuli" class="form-check-label ">
+                                            <input type="radio" id="has-wushuichuli" name="wushuichuligongyi"
+                                                   value="有"
+                                                   class="form-check-input">有
+                                        </label>
+                                        <label for="no-wushuichuli" class="form-check-label ">
+                                            <input type="radio" id="no-wushuichuli" name="wushuichuligongyi"
+                                                   value="无"
+                                                   class="form-check-input">无
+                                        </label>
+                                    </div>
+                                </div>
+                            </div><!-- 横向选择 -->
+                            <div class="card-header" style="margin-bottom: 50px;">
+                                <strong class="card-title">废气情况</strong>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label class=" form-control-label">废气情况</label>
+                                </div>
+                                <div class="col col-md-9">
+                                    <div class="form-check-inline form-check">
+                                        <label for="has-feiqiqingkuang" class="form-check-label ">
+                                            <input type="radio" id="has-feiqiqingkuang" name="feiqiqingkuang"
+                                                   value="有"
+                                                   class="form-check-input">有
+                                        </label>
+                                        <label for="no-feiqiqingkuang" class="form-check-label ">
+                                            <input type="radio" id="no-feiqiqingkuang" name="feiqiqingkuang"
+                                                   value="无"
+                                                   class="form-check-input">无
+                                        </label>
+                                    </div>
+                                </div>
+                            </div><!-- 横向选择 -->
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="fengliang" class=" form-control-label">风量</label>
+                                </div>
+                                <div class="col-12 col-md-9"><input type="text" id="fengliang" name="fengliang"
+                                                                    placeholder="m³/h" class="form-control">
+                                </div>
+                            </div><!-- 输入框体 -->
+                            <div class="row form-group">
+                                <div style="width:100%;padding:2%"><label class=" form-control-label">废气处理工艺：布袋除尘 旋风除尘
+                                    喷淋塔(脱硫 ) 脱硝
+                                    UV光解 活性炭 低温等离子 RCO RTO BCE 在线监测设备写</label>
+                                </div>
+                                <div class="col col-md-9">
+                                    <div class="form-check-inline form-check">
+                                        <label for="has-feiqigongyi" class="form-check-label ">
+                                            <input type="radio" id="has-feiqigongyi" name="feiqichuligongyi"
+                                                   value="有"
+                                                   class="form-check-input">有
+                                        </label>
+                                        <label for="no-feiqigongyi" class="form-check-label ">
+                                            <input type="radio" id="no-feiqigongyi" name="feiqichuligongyi"
+                                                   value="无"
+                                                   class="form-check-input">无
+                                        </label>
+                                    </div>
+                                </div>
+                            </div><!-- 横向选择 -->
+                            <div class="card-header" style="margin-bottom: 50px;">
+                                <strong class="card-title">固废情况</strong>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="wuli" class=" form-control-label">污泥</label>
+                                </div>
+                                <div class="col-12 col-md-9"><input type="text" id="wuli" name="wuni"
+                                                                    placeholder="t/d" class="form-control">
+                                </div>
+                            </div><!-- 输入框体 -->
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="youqi" class=" form-control-label">油漆</label>
+                                </div>
+                                <div class="col-12 col-md-9"><input type="text" id="youqi" name="youqi"
+                                                                    placeholder="/d" class="form-control">
+                                </div>
+                            </div><!-- 输入框体 -->
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="jinshu" class=" form-control-label">金属</label>
+                                </div>
+                                <div class="col-12 col-md-9"><input type="text" id="jinshu" name="jinshu"
+                                                                    placeholder="t/d" class="form-control">
+                                </div>
+                            </div><!-- 输入框体 -->
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="fenchen" class=" form-control-label">粉尘</label>
+                                </div>
+                                <div class="col-12 col-md-9"><input type="text" id="fenchen" name="fenchen"
+                                                                    placeholder="t/d" class="form-control">
+                                </div>
+                            </div><!-- 输入框体 -->
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="feiqiwu"
+                                                                 class=" form-control-label">废弃物填写名称</label>
+                                </div>
+                                <div class="col-12 col-md-9"><input type="text" id="feiqiwu"
+                                                                    name="feiqiwutianxiemingcheng"
+                                                                    placeholder="t/d" class="form-control">
+                                </div>
+                            </div><!-- 输入框体 -->
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="qitawuzhishuoming"
+                                                                 class=" form-control-label">其他物质说明</label>
+                                </div>
+                                <div class="col-12 col-md-9"><input type="text" id="qitawuzhishuoming"
+                                                                    name="qitashuoming"
+                                                                    placeholder="" class="form-control">
+                                </div>
+                            </div><!-- 输入框体 -->
+                            <div class="card-header" style="margin-bottom: 50px;">
+                                <strong class="card-title">噪音情况</strong>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label class=" form-control-label">噪音情况</label>
+                                </div>
+                                <div class="col col-md-9">
+                                    <div class="form-check-inline form-check">
+                                        <label for="has-zaoyin" class="form-check-label ">
+                                            <input type="radio" id="has-zaoyin" name="zaoyinqingkuang"
+                                                   value="有"
+                                                   class="form-check-input">有
+                                        </label>
+                                        <label for="no-zaoyin" class="form-check-label ">
+                                            <input type="radio" id="no-zaoyin" name="zaoyinqingkuang"
+                                                   value="无"
+                                                   class="form-check-input">无
+                                        </label>
+                                    </div>
+                                </div>
+                            </div><!-- 横向选择 -->
+                            <div class="card-header" style="margin-bottom: 50px;">
+                                <strong class="card-title">药剂使用情况</strong>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="pianjian" class=" form-control-label">片碱</label>
+                                </div>
+                                <div class="col-12 col-md-9"><input type="text" id="pianjian" name="pianjian"
+                                                                    placeholder="t/d" class="form-control">
+                                </div>
+                            </div><!-- 输入框体 -->
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="PAC"
+                                                                 class=" form-control-label">PAC（聚合氯化铝）</label>
+                                </div>
+                                <div class="col-12 col-md-9"><input type="text" id="PAC" name="PAC"
+                                                                    placeholder="t/d" class="form-control">
+                                </div>
+                            </div><!-- 输入框体 -->
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="PAM" class=" form-control-label">
+                                    PAM（聚丙烯酰胺）</label>
+                                </div>
+                                <div class="col-12 col-md-9"><input type="text" id="PAM" name="PAM"
+                                                                    placeholder="t/d" class="form-control">
+                                </div>
+                            </div><!-- 输入框体 -->
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="tansuangai"
+                                                                 class=" form-control-label">碳酸钙</label>
+                                </div>
+                                <div class="col-12 col-md-9"><input type="text" id="tansuangai" name="tansuangai"
+                                                                    placeholder="t/d" class="form-control">
+                                </div>
+                            </div><!-- 输入框体 -->
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="chulinji"
+                                                                 class=" form-control-label">除磷剂</label>
+                                </div>
+                                <div class="col-12 col-md-9"><input type="text" id="chulinji" name="chulinji"
+                                                                    placeholder="t/d" class="form-control">
+                                </div>
+                            </div><!-- 输入框体 -->
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label class=" form-control-label">哪里想改造</label>
+                                </div>
+                                <div class="col col-md-9">
+                                    <div class="form-check">
+                                        <div class="checkbox">
+                                            <label for="checkbox1" class="form-check-label ">
+                                                <input type="checkbox" id="checkbox1" name="checkbox1"
+                                                       value="环评"
+                                                       class="form-check-input">环评
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label for="checkbox2" class="form-check-label ">
+                                                <input type="checkbox" id="checkbox2" name="checkbox2"
+                                                       value="预案"
+                                                       class="form-check-input">预案
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label for="checkbox3" class="form-check-label ">
+                                                <input type="checkbox" id="checkbox3" name="checkbox3"
+                                                       value="清洁生产"
+                                                       class="form-check-input">清洁生产
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label for="checkbox4" class="form-check-label ">
+                                                <input type="checkbox" id="checkbox4" name="checkbox4"
+                                                       value="污水"
+                                                       class="form-check-input">污水
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label for="checkbox5" class="form-check-label ">
+                                                <input type="checkbox" id="checkbox5" name="checkbox5"
+                                                       value="废气"
+                                                       class="form-check-input">废气
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label for="checkbox6" class="form-check-label ">
+                                                <input type="checkbox" id="checkbox6" name="checkbox6"
+                                                       value="噪音"
+                                                       class="form-check-input">噪音
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- 纵向多选 -->
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="zhushi" class=" form-control-label">注</label>
+                                </div>
+                                <div class="col-12 col-md-9"><input type="text" id="zhushi" name="zhushi"
+                                                                    placeholder="" class="form-control">
+                                </div>
+                            </div><!-- 输入框体 -->
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="file-multiple-input"
+                                                                 class=" form-control-label">上传图片</label></div>
+                                <div class="col-12 col-md-9"><input type="file" id="file-multiple-input"
+                                                                    name="file-multiple-input" multiple=""
+                                                                    class="form-control-file"></div>
+                            </div><!-- 导入图片 -->
                         </div>
-                        <div class="row form-group">
-                            <div class="col col-md-3"><label class=" form-control-label">污水情况</label>
-                            </div>
-                            <div class="col col-md-9">
-                                <div class="form-check-inline form-check">
-                                    <label for="inline-radio1" class="form-check-label ">
-                                        <input type="radio" id="has-wushui" name="inline-wushui"
-                                               value="有"
-                                               class="form-check-input">有
-                                    </label>
-                                    <label for="inline-radio2" class="form-check-label ">
-                                        <input type="radio" id="no-wushui" name="inline-wushui"
-                                               value="无"
-                                               class="form-check-input">无
-                                    </label>
-                                </div>
-                            </div>
-                        </div><!-- 横向选择 -->
-                        <div class="row form-group">
-                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">吨位</label>
-                            </div>
-                            <div class="col-12 col-md-9"><input type="text" id="dunwei" name="text-input"
-                                                                placeholder="t/d" class="form-control">
-                            </div>
-                        </div><!-- 输入框体 -->
-                        <div class="row form-group">
-                            <div style="width:100%;padding:2%"><label class=" form-control-label">污水处理工艺：隔油池 →调节池 →混淋气浮
-                                →铁碳微电解
-                                →芬顿 →厌氧塔 →水解酸化1级 2级 →接触氧化池1级 2级 →二沉池 →芬顿 →混淋沉淀 →排放池 →清水池 →巴氏尔排放口 →超声波流量计 →PH计
-                                →在线设备填写</label>
-                            </div>
-                            <br>
-                            <div class="col col-md-9">
-                                <div class="form-check-inline form-check">
-                                    <label for="inline-radio1" class="form-check-label ">
-                                        <input type="radio" id="has-wushuichuli" name="inline-wushuichuli"
-                                               value="有"
-                                               class="form-check-input">有
-                                    </label>
-                                    <label for="inline-radio2" class="form-check-label ">
-                                        <input type="radio" id="no-wushuichuli" name="inline-wushuichuli"
-                                               value="无"
-                                               class="form-check-input">无
-                                    </label>
-                                </div>
-                            </div>
-                        </div><!-- 横向选择 -->
-                        <div class="card-header" style="margin-bottom: 50px;">
-                            <strong class="card-title">废气情况</strong>
-                        </div>
-                        <div class="row form-group">
-                            <div class="col col-md-3"><label class=" form-control-label">废气情况</label>
-                            </div>
-                            <div class="col col-md-9">
-                                <div class="form-check-inline form-check">
-                                    <label for="inline-radio1" class="form-check-label ">
-                                        <input type="radio" id="has-feiqiqingkuang" name="inline-feiqiqingkuang"
-                                               value="有"
-                                               class="form-check-input">有
-                                    </label>
-                                    <label for="inline-radio2" class="form-check-label ">
-                                        <input type="radio" id="no-feiqiqingkuang" name="inline-feiqiqingkuang"
-                                               value="无"
-                                               class="form-check-input">无
-                                    </label>
-                                </div>
-                            </div>
-                        </div><!-- 横向选择 -->
-                        <div class="row form-group">
-                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">风量</label>
-                            </div>
-                            <div class="col-12 col-md-9"><input type="text" id="fengliang" name="text-input"
-                                                                placeholder="m³/h" class="form-control">
-                            </div>
-                        </div><!-- 输入框体 -->
-                        <div class="row form-group">
-                            <div style="width:100%;padding:2%"><label class=" form-control-label">废气处理工艺：布袋除尘 旋风除尘
-                                喷淋塔(脱硫 ) 脱硝
-                                UV光解 活性炭 低温等离子 RCO RTO BCE 在线监测设备写</label>
-                            </div>
-                            <div class="col col-md-9">
-                                <div class="form-check-inline form-check">
-                                    <label for="inline-radio1" class="form-check-label ">
-                                        <input type="radio" id="has-feiqigongyi" name="inline-feiqigongyi"
-                                               value="有"
-                                               class="form-check-input">有
-                                    </label>
-                                    <label for="inline-radio2" class="form-check-label ">
-                                        <input type="radio" id="no-feiqigongyi" name="inline-feiqigongyi"
-                                               value="无"
-                                               class="form-check-input">无
-                                    </label>
-                                </div>
-                            </div>
-                        </div><!-- 横向选择 -->
-                        <div class="card-header" style="margin-bottom: 50px;">
-                            <strong class="card-title">固废情况</strong>
-                        </div>
-                        <div class="row form-group">
-                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">污泥</label>
-                            </div>
-                            <div class="col-12 col-md-9"><input type="text" id="wuli" name="text-input"
-                                                                placeholder="t/d" class="form-control">
-                            </div>
-                        </div><!-- 输入框体 -->
-                        <div class="row form-group">
-                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">油漆</label>
-                            </div>
-                            <div class="col-12 col-md-9"><input type="text" id="youqi" name="text-input"
-                                                                placeholder="/d" class="form-control">
-                            </div>
-                        </div><!-- 输入框体 -->
-                        <div class="row form-group">
-                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">金属</label>
-                            </div>
-                            <div class="col-12 col-md-9"><input type="text" id="jinshu" name="text-input"
-                                                                placeholder="t/d" class="form-control">
-                            </div>
-                        </div><!-- 输入框体 -->
-                        <div class="row form-group">
-                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">粉尘</label>
-                            </div>
-                            <div class="col-12 col-md-9"><input type="text" id="fenchen" name="text-input"
-                                                                placeholder="t/d" class="form-control">
-                            </div>
-                        </div><!-- 输入框体 -->
-                        <div class="row form-group">
-                            <div class="col col-md-3"><label for="text-input"
-                                                             class=" form-control-label">废弃物填写名称</label>
-                            </div>
-                            <div class="col-12 col-md-9"><input type="text" id="feiqiwu" name="text-input"
-                                                                placeholder="t/d" class="form-control">
-                            </div>
-                        </div><!-- 输入框体 -->
-                        <div class="row form-group">
-                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">其他物质说明</label>
-                            </div>
-                            <div class="col-12 col-md-9"><input type="text" id="qitawuzhishuoming" name="text-input"
-                                                                placeholder="" class="form-control">
-                            </div>
-                        </div><!-- 输入框体 -->
-                        <div class="card-header" style="margin-bottom: 50px;">
-                            <strong class="card-title">噪音情况</strong>
-                        </div>
-                        <div class="row form-group">
-                            <div class="col col-md-3"><label class=" form-control-label">噪音情况</label>
-                            </div>
-                            <div class="col col-md-9">
-                                <div class="form-check-inline form-check">
-                                    <label for="inline-radio1" class="form-check-label ">
-                                        <input type="radio" id="has-zaoyin" name="inline-zaoyin"
-                                               value="有"
-                                               class="form-check-input">有
-                                    </label>
-                                    <label for="inline-radio2" class="form-check-label ">
-                                        <input type="radio" id="no-zaoyin" name="inline-zaoyin"
-                                               value="无"
-                                               class="form-check-input">无
-                                    </label>
-                                </div>
-                            </div>
-                        </div><!-- 横向选择 -->
-                        <div class="card-header" style="margin-bottom: 50px;">
-                            <strong class="card-title">药剂使用情况</strong>
-                        </div>
-                        <div class="row form-group">
-                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">片碱</label>
-                            </div>
-                            <div class="col-12 col-md-9"><input type="text" id="pianjian" name="text-input"
-                                                                placeholder="t/d" class="form-control">
-                            </div>
-                        </div><!-- 输入框体 -->
-                        <div class="row form-group">
-                            <div class="col col-md-3"><label for="text-input"
-                                                             class=" form-control-label">PAC（聚合氯化铝）</label>
-                            </div>
-                            <div class="col-12 col-md-9"><input type="text" id="PAC" name="text-input"
-                                                                placeholder="t/d" class="form-control">
-                            </div>
-                        </div><!-- 输入框体 -->
-                        <div class="row form-group">
-                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">
-                                PAM（聚丙烯酰胺）</label>
-                            </div>
-                            <div class="col-12 col-md-9"><input type="text" id="PAM" name="text-input"
-                                                                placeholder="t/d" class="form-control">
-                            </div>
-                        </div><!-- 输入框体 -->
-                        <div class="row form-group">
-                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">碳酸钙</label>
-                            </div>
-                            <div class="col-12 col-md-9"><input type="text" id="tansuangai" name="text-input"
-                                                                placeholder="t/d" class="form-control">
-                            </div>
-                        </div><!-- 输入框体 -->
-                        <div class="row form-group">
-                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">除磷剂</label>
-                            </div>
-                            <div class="col-12 col-md-9"><input type="text" id="chulinji" name="text-input"
-                                                                placeholder="t/d" class="form-control">
-                            </div>
-                        </div><!-- 输入框体 -->
-                        <div class="row form-group">
-                            <div class="col col-md-3"><label class=" form-control-label">哪里想改造</label>
-                            </div>
-                            <div class="col col-md-9">
-                                <div class="form-check">
-                                    <div class="checkbox">
-                                        <label for="checkbox1" class="form-check-label ">
-                                            <input type="checkbox" id="checkbox1" name="checkbox1"
-                                                   value="环评"
-                                                   class="form-check-input">环评
-                                        </label>
-                                    </div>
-                                    <div class="checkbox">
-                                        <label for="checkbox2" class="form-check-label ">
-                                            <input type="checkbox" id="checkbox2" name="checkbox2"
-                                                   value="预案"
-                                                   class="form-check-input">预案
-                                        </label>
-                                    </div>
-                                    <div class="checkbox">
-                                        <label for="checkbox3" class="form-check-label ">
-                                            <input type="checkbox" id="checkbox3" name="checkbox3"
-                                                   value="清洁生产"
-                                                   class="form-check-input">清洁生产
-                                        </label>
-                                    </div>
-                                    <div class="checkbox">
-                                        <label for="checkbox4" class="form-check-label ">
-                                            <input type="checkbox" id="checkbox4" name="checkbox4"
-                                                   value="污水"
-                                                   class="form-check-input">污水
-                                        </label>
-                                    </div>
-                                    <div class="checkbox">
-                                        <label for="checkbox5" class="form-check-label ">
-                                            <input type="checkbox" id="checkbox5" name="checkbox5"
-                                                   value="废气"
-                                                   class="form-check-input">废气
-                                        </label>
-                                    </div>
-                                    <div class="checkbox">
-                                        <label for="checkbox6" class="form-check-label ">
-                                            <input type="checkbox" id="checkbox6" name="checkbox6"
-                                                   value="噪音"
-                                                   class="form-check-input">噪音
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div><!-- 纵向多选 -->
-                        <div class="row form-group">
-                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">注</label>
-                            </div>
-                            <div class="col-12 col-md-9"><input type="text" id="zhushi" name="text-input"
-                                                                placeholder="" class="form-control">
-                            </div>
-                        </div><!-- 输入框体 -->
-                        <div class="row form-group">
-                            <div class="col col-md-3"><label for="file-multiple-input"
-                                                             class=" form-control-label">上传图片</label></div>
-                            <div class="col-12 col-md-9"><input type="file" id="file-multiple-input"
-                                                                name="file-multiple-input" multiple=""
-                                                                class="form-control-file"></div>
-                        </div><!-- 导入图片 -->
+
                     </div>
 
                 </div>
+                <button id="payment-button" type="submit" class="btn btn-lg btn-info btn-block" style="margin:50px">
+                    <i class="fa fa-lock fa-lg"></i>&nbsp;
+                    <span id="payment-button-amount">提交</span>
+                    <span id="payment-button-sending" style="display:none;">Sending…</span>
+                </button>
+            </form>
 
-            </div>
-            <button id="payment-button" type="submit" class="btn btn-lg btn-info btn-block" style="margin:50px">
-                <i class="fa fa-lock fa-lg"></i>&nbsp;
-                <span id="payment-button-amount">提交</span>
-                <span id="payment-button-sending" style="display:none;">Sending…</span>
-            </button>
 
         </div>
-    </div><!-- .content -->
-    {% endblock %}
-
-
+    </div>
+</div><!-- .content -->
+{% endblock %}
