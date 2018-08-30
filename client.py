@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request,redirect,url_for
 import threading
 from PyQt5.QtCore import QUrl
 from PyQt5.QtWidgets import QApplication
@@ -9,27 +9,24 @@ import os, time
 abs_path = os.getcwd()
 app = Flask(__name__)
 URL, PORT = 'localhost', 1518
-cols = """
-name,date,companyname,username,userphone,userepl,companylocation,latlng,huanping,reportbook,reporttable,dengjitable,
-xianchangxiangfu,xianchangxiangfu_desc,yanshou,yanshou_desc,shengchangongyi,yuanliang,chengping,weixianping,
-wuranqingkuang,huanjingjijinyuyan,qingjiebianhao,wushuiqingkuang,dunwei,wushuichuligongyi,feiqiqingkuang,fengliang,
-feiqichuligongyi,wuni,youqi,jinshu,fenchen,feiqiwutianxiemingcheng,qitashuoming,zaoyinqingkuang,pianjian,PAC,PAM,
-tansuangai,chulinji,nalixianggaizao,zhushi,pic"""
-table_cols = """
-name,date,companyname,username,userphone,userepl,companylocation,latlng,huanping,reportbook,reporttable,dengjitable,
-xianchangxiangfu,yanshou,weixianping,wuranqingkuang,huanjingjijinyuyan,qingjiebianhao,
-wushuiqingkuang,dunwei,wushuichuligongyi,feiqiqingkuang,fengliang,
-feiqichuligongyi,wuni,youqi,jinshu,fenchen,feiqiwutianxiemingcheng,zaoyinqingkuang,pianjian,PAC,PAM,
-tansuangai,chulinji,nalixianggaizao
-"""
-cols_table = """业务人员,日期,企业名称,业主姓名,业主电话,业主职务,企业地址,经纬度,环评情况,报告书,报告表,登记表,
-现场相符,验收情况,危险品,重点污染,环境应急预案,清洁生产,污水,吨位,污水处理,废气,风量,废气处理,
-污泥,油漆,金属,粉尘,废弃物,噪音,片碱,PAC,PAM,碳酸钙,除磷剂,改造
-"""
-all_cols_table = """业务人员,日期,企业名称,业主电话,业主姓名,业主职务,企业地址,经纬度,环评情况,报告书,报告表,登记表,现场相符,
-不否说明,验收情况,验收,生产工艺,原辅料,成品,危险品,重点污染,环境应急预案,清洁生产,污水,吨位,污水处理,废气,风量,废气处理,固废情况,
-污泥,油漆,金属,粉尘,废弃物,其他,噪音,片碱,PAC,PAM,碳酸钙,除磷剂,改造,注
-"""
+cols = """name,date,companyname,username,userphone,userepl,companylocation,latlng,huanping,reportbook,reporttable,dengjitable,xianchangxiangfu,xianchangxiangfu_desc,yanshou,yanshou_desc,shengchangongyi,yuanliang,chengping,weixianping,wuranqingkuang,huanjingjijinyuyan,qingjiebianhao,wushuiqingkuang,dunwei,wushuichuligongyi,feiqiqingkuang,fengliang,feiqichuligongyi,wuni,youqi,jinshu,fenchen,feiqiwutianxiemingcheng,qitashuoming,zaoyinqingkuang,pianjian,PAC,PAM,tansuangai,chulinji,nalixianggaizao,zhushi,pic"""
+table_cols = """name,date,companyname,username,userphone,userepl,companylocation,latlng,huanping,reportbook,reporttable,dengjitable,xianchangxiangfu,yanshou,weixianping,wuranqingkuang,huanjingjijinyuyan,qingjiebianhao,wushuiqingkuang,dunwei,wushuichuligongyi,feiqiqingkuang,fengliang,feiqichuligongyi,wuni,youqi,jinshu,fenchen,feiqiwutianxiemingcheng,zaoyinqingkuang,pianjian,PAC,PAM,tansuangai,chulinji"""
+cols_table = """业务人员,日期,企业名称,业主姓名,业主电话,业主职务,企业地址,经纬度,环评情况,报告书,报告表,登记表,现场相符,验收情况,危险品,重点污染,环境应急预案,清洁生产,污水,吨位,污水处理,废气,风量,废气处理,污泥,油漆,金属,粉尘,废弃物,噪音,片碱,PAC,PAM,碳酸钙,除磷剂"""
+all_cols_table = """业务人员,日期,企业名称,业主电话,业主姓名,业主职务,企业地址,经纬度,环评情况,报告书,报告表,登记表,现场相符,不否说明,验收情况,验收,生产工艺,原辅料,成品,危险品,重点污染,环境应急预案,清洁生产,污水,吨位,污水处理,废气,风量,废气处理,固废情况,污泥,油漆,金属,粉尘,废弃物,其他,噪音,片碱,PAC,PAM,碳酸钙,除磷剂,改造,注"""
+cols_list = cols_table.split(',')
+table_cols_list = table_cols.split(',')
+col_dict = {cols_list[i]: table_cols_list[i] for i in range(len(table_cols_list))}
+sel_cols = [['登记信息', '业务人员', '日期'],
+            ['企业信息', '企业名称', '业主电话', '业主姓名', '业主职务', '企业地址', '经纬度'],
+            ['环评情况', '环评情况', '报告书', '报告表', '登记表', '现场相符'],
+            ['验收情况', '验收情况'],
+            ['生产工艺', '危险品', '重点污染', '环境应急预案', '清洁生产'],
+            ['污水情况', '污水', '吨位', '污水处理'],
+            ['废气情况', '废气', '风量', '废气处理'],
+            ['固废情况', '污泥', '油漆', '金属', '粉尘', '废弃物'],
+            ['噪音情况', '噪音'],
+            ['药剂使用情况', '片碱', 'PAC', 'PAM', '碳酸钙', '除磷剂']]
+
 
 class DB_Connector():
     def __init__(self):
@@ -96,15 +93,30 @@ def home():
     return render_template('home.html')
 
 
-@app.route('/tables-data')
+@app.route('/tables-data', methods=['GET', 'POST'])
 def tables_data():
-    db = DB_Connector()
-    cols = cols_table.split(',')
-    db.curse.execute("""select %s from mds_env_survey"""%table_cols)
-    lines = db.curse.fetchall()
-    lines = [list(i) for i in lines]
-    db.close()
-    return render_template('tables-data.html',tb={'cols':cols,'lines':lines})
+    global sel_cols,cols_table,table_cols
+    if request.method == 'GET':
+        cols = cols_table.split(',')
+        db = DB_Connector()
+        db.curse.execute("""select %s from mds_env_survey""" % (','.join(table_cols.split(',')[:5])))
+        lines = db.curse.fetchall()
+        lines = [list(i) for i in lines]
+        db.close()
+        return render_template('tables-data.html', tb={'cols': cols[:5], 'lines': lines}, sel_cols=sel_cols)
+    elif request.method == "POST":
+        post_cols = request.form.get("cols")
+        if not post_cols:
+            return redirect(url_for('tables_data'))
+        post_cols=post_cols.split('-')
+        needed = [col_dict[i] for i in post_cols]
+        db = DB_Connector()
+        db.curse.execute("""select %s from mds_env_survey""" % (','.join(needed)))
+        lines_2 = db.curse.fetchall()
+        lines_2 = [list(i) for i in lines_2]
+        db.close()
+        return render_template('tables-data.html', tb={'cols': post_cols, 'lines': lines_2}, sel_cols=sel_cols)
+
 
 
 @app.route('/forms-basic')
