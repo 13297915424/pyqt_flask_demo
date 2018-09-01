@@ -65,7 +65,7 @@ class DB_Connector():
 
 if __name__ == '__main__':
     db = DB_Connector()
-    db.curse.execute("select * from mds_env_survey")
-    #print(db.curse.fetchall())
-    db.drop()
-    db.init_envsurvey()
+    db.curse.execute("select name,date from mds_env_survey where name in ('老王')")
+    print(db.curse.fetchall())
+    # db.drop()
+    # db.init_envsurvey()

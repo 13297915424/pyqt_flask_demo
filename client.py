@@ -1,11 +1,11 @@
-from flask import Flask, render_template, request,redirect,url_for
+from flask import Flask, render_template, request, redirect, url_for
 import threading
 from PyQt5.QtCore import QUrl
 from PyQt5.QtWidgets import QApplication
 from PyQt5.QtWebEngineWidgets import QWebEngineView
 import sqlite3
 import os, time
-
+import datetime
 abs_path = os.getcwd()
 app = Flask(__name__)
 URL, PORT = 'localhost', 1518
@@ -90,33 +90,61 @@ class DB_Connector():
 
 @app.route('/')
 def home():
-    return render_template('home.html')
+    db = DB_Connector()
+    db.curse.execute("select date,count(*) from mds_env_survey group by date")
+    fet = db.curse.fetchall()
+    db.close()
+    date = [i[0].replace('-','/') for i in fet]
+    data = [i[1] for i in fet]
+    return render_template('home.html', data=data,date=date)
 
+def get_sel(cols,db):
+    sel = [[i] for i in cols]
+    for  index in range(len(cols)):
+        col = col_dict[cols[index]]
+        db.curse.execute("""select %s from mds_env_survey group by %s""" % (col, col))
+        dt = db.curse.fetchall()
+        sel[index].append([i[0] for i in dt])
+    return sel
 
 @app.route('/tables-data', methods=['GET', 'POST'])
 def tables_data():
-    global sel_cols,cols_table,table_cols
+    global sel_cols, cols_table, table_cols
+    db = DB_Connector()
+    cols = cols_table.split(',')
+
     if request.method == 'GET':
-        cols = cols_table.split(',')
-        db = DB_Connector()
+        sel = get_sel(cols[:5],db)
         db.curse.execute("""select %s from mds_env_survey""" % (','.join(table_cols.split(',')[:5])))
         lines = db.curse.fetchall()
         lines = [list(i) for i in lines]
         db.close()
-        return render_template('tables-data.html', tb={'cols': cols[:5], 'lines': lines}, sel_cols=sel_cols)
+        return render_template('tables-data.html', tb={'cols': cols[:5], 'lines': lines,'sel':sel}, sel_cols=sel_cols)
     elif request.method == "POST":
-        post_cols = request.form.get("cols")
-        if not post_cols:
-            return redirect(url_for('tables_data'))
-        post_cols=post_cols.split('-')
+        # pass
+        # return redirect(url_for('tables_data'))
+        where = []
+        for k,v in request.form.items():
+            if k =="cols":
+                post_cols = request.form.get("cols")
+                post_cols = post_cols.split('-')
+                if not post_cols:
+                    return redirect(url_for('tables_data'))
+            else:
+                if v:
+                    ll = '('+','.join(map(lambda x:'"'+x+'"',v.split('-')))+')'
+                    where.append("%s in %s"%(col_dict[k],ll))
+        sel = get_sel(post_cols, db)
         needed = [col_dict[i] for i in post_cols]
         db = DB_Connector()
-        db.curse.execute("""select %s from mds_env_survey""" % (','.join(needed)))
+        print("""select %s from mds_env_survey""" % (','.join(needed))+" where %s"%" and ".join(where))
+        sql = """select %s from mds_env_survey""" % (','.join(needed))+" where %s"%" and ".join(where) if where else \
+            """select %s from mds_env_survey""" % (','.join(needed))
+        db.curse.execute(sql)
         lines_2 = db.curse.fetchall()
         lines_2 = [list(i) for i in lines_2]
         db.close()
-        return render_template('tables-data.html', tb={'cols': post_cols, 'lines': lines_2}, sel_cols=sel_cols)
-
+        return render_template('tables-data.html', tb={'cols': post_cols, 'lines': lines_2,'sel':sel}, sel_cols=sel_cols)
 
 
 @app.route('/forms-basic')
