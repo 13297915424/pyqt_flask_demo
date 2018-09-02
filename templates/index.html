@@ -69,14 +69,6 @@
                         <li><i class="menu-icon fa fa-th"></i><a href="{{ url_for('forms_advanced') }}">普查企业调查表</a></li>
                     </ul>
                 </li>
-                <!--
-                <li class="menu-item-has-children dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                       aria-expanded="false"> <i class="menu-icon ti-email"></i>导入数据</a>
-                    <ul class="sub-menu children dropdown-menu">
-                        <li><i class="menu-icon fa fa-th"></i><a href="{{ url_for('forms_basic') }}">普查企业调查表</a></li>
-                    </ul>
-                </li> -->
 
 
             </ul>
@@ -93,23 +85,24 @@
     <!-- Header-->
 
     <!-- Header-->
-<header id="header" class="header">
+    <header id="header" class="header">
 
-            <div class="header-menu">
+        <div class="header-menu">
 
-                <div class="col-sm-7">
-                    <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a>
-                    <div class="header-left">
+            <div class="col-sm-7">
+                <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a>
+                <div class="header-left">
 
-                        <div class="form-inline">
-                            <form class="search-form">
-                                <input class="form-control mr-sm-2" type="text" placeholder="Search ..." aria-label="Search">
-                                <button class="search-close" type="submit"><i class="fa fa-close"></i></button>
-                            </form>
-                        </div>
+                    <div class="form-inline">
+                        <form class="search-form">
+                            <input class="form-control mr-sm-2" type="text" placeholder="Search ..."
+                                   aria-label="Search">
+                            <button class="search-close" type="submit"><i class="fa fa-close"></i></button>
+                        </form>
+                    </div>
 
-                        <div class="dropdown for-notification">
-                          <div class="dropdown-menu" aria-labelledby="notification">
+                    <div class="dropdown for-notification">
+                        <div class="dropdown-menu" aria-labelledby="notification">
                             <p class="red">You have 3 Notification</p>
                             <a class="dropdown-item media bg-flat-color-1" href="#">
                                 <i class="fa fa-check"></i>
@@ -123,15 +116,16 @@
                                 <i class="fa fa-warning"></i>
                                 <p>Server #3 overloaded.</p>
                             </a>
-                          </div>
                         </div>
+                    </div>
 
-                        <div class="dropdown for-message">
+                    <div class="dropdown for-message">
 
-                          <div class="dropdown-menu" aria-labelledby="message">
+                        <div class="dropdown-menu" aria-labelledby="message">
                             <p class="red">You have 4 Mails</p>
                             <a class="dropdown-item media bg-flat-color-1" href="#">
-                                <span class="photo media-left"><img alt="avatar" src="static/images/avatar/1.jpg"></span>
+                                <span class="photo media-left"><img alt="avatar"
+                                                                    src="static/images/avatar/1.jpg"></span>
                                 <span class="message media-body">
                                     <span class="name float-left">Jonathan Smith</span>
                                     <span class="time float-right">Just now</span>
@@ -139,7 +133,8 @@
                                 </span>
                             </a>
                             <a class="dropdown-item media bg-flat-color-4" href="#">
-                                <span class="photo media-left"><img alt="avatar" src="static/images/avatar/2.jpg"></span>
+                                <span class="photo media-left"><img alt="avatar"
+                                                                    src="static/images/avatar/2.jpg"></span>
                                 <span class="message media-body">
                                     <span class="name float-left">Jack Sanders</span>
                                     <span class="time float-right">5 minutes ago</span>
@@ -147,7 +142,8 @@
                                 </span>
                             </a>
                             <a class="dropdown-item media bg-flat-color-5" href="#">
-                                <span class="photo media-left"><img alt="avatar" src="static/images/avatar/3.jpg"></span>
+                                <span class="photo media-left"><img alt="avatar"
+                                                                    src="static/images/avatar/3.jpg"></span>
                                 <span class="message media-body">
                                     <span class="name float-left">Cheryl Wheeler</span>
                                     <span class="time float-right">10 minutes ago</span>
@@ -155,21 +151,22 @@
                                 </span>
                             </a>
                             <a class="dropdown-item media bg-flat-color-3" href="#">
-                                <span class="photo media-left"><img alt="avatar" src="static/images/avatar/4.jpg"></span>
+                                <span class="photo media-left"><img alt="avatar"
+                                                                    src="static/images/avatar/4.jpg"></span>
                                 <span class="message media-body">
                                     <span class="name float-left">Rachel Santos</span>
                                     <span class="time float-right">15 minutes ago</span>
                                         <p>Lorem ipsum dolor sit amet, consectetur</p>
                                 </span>
                             </a>
-                          </div>
                         </div>
                     </div>
                 </div>
-
-
             </div>
-        </header><!-- /header -->
+
+
+        </div>
+    </header><!-- /header -->
 
 
     {% if message %}
@@ -180,6 +177,15 @@
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
+    </div>
+    {% endif %}
+    {% if warn %}
+    <div class="sufee-alert alert with-close alert-danger alert-dismissible fade show">
+        <span class="badge badge-pill badge-danger">错误！</span>
+        {{warn}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
     </div>
     {% endif %}
     {% block body %}{% endblock %}
@@ -215,6 +221,7 @@
                 normalizeFunction: 'polynomial'
             } );
         } )( jQuery );
+
 </script>
 <!-- Right Panel -->
 

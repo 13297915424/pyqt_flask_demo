@@ -1,6 +1,7 @@
 {% extends 'index.html' %}
 {% block link %}
-<link rel="stylesheet" href="static/assets/css/lib/datatable/dataTables.bootstrap.min.css">
+<link rel="stylesheet" href="static/assets/css/lib/datatable/dataTables.bootstrap.min.css"
+      xmlns="http://www.w3.org/1999/html">
 <link href="static/assets/css/lib/vector-map/jqvmap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="static/assets/css/lib/chosen/chosen.min.css">
 {% endblock %}
@@ -73,11 +74,22 @@
                     <div class="card">
                         <div class="card-header">
                             <strong class="card-title">普查企业调查表</strong>
-                            <button type="button" class="btn btn-success" style="float:right;">下载全部</button>
-                            <button type="button" class="btn btn-primary" style="float:right;">下载当前</button>
+                            <a href="{{url_for('static',filename='download_all.zip')}}" target="view_window"><!-- target="view_window"-->
+                                <button type="button" class="btn btn-success" style="float:right;">
+                                    下载全部
+                                </button>
+                            </a>
+                            <a href="{{url_for('static',filename='download_cur.zip')}}" target="view_window"><!-- target="view_window"-->
+                                <button type="button" class="btn btn-primary" style="float:right;">下载当前</button>
+                            </a>
                             <div class="row form-group">
-                                <div class="col-12 col-md-9"><input type="file" id="file-input" name="file-input"
-                                                                    class="form-control-file"></div>
+                                <div class="col-12 col-md-9">
+                                    <form action="{{url_for('upload')}}" method="post">
+                                        <input type="file" id="file-input" name="file-input"
+                                               class="form-control-file">
+                                        <button type="submit" class="btn btn-primary">上传</button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                         <div class="card-body">
@@ -95,12 +107,18 @@
                                 <tbody>
                                 {% for line in tb.lines %}
                                 <tr>
-                                    <td>
-                                        <button type="button" class="btn btn-success btn-sm">查看详情</button>
-                                        <button type="button" class="btn btn-danger btn-sm">删除</button>
+                                    <td name="{{line[0]}}">
+                                        <form action="{{url_for('forms_advanced')}}" method="post">
+                                            <input class="btn btn-success" type="submit" value="详情">
+                                            <input type="text" value="{{line[0]}}" name="id" style="display:none">
+                                            <input type="text" value="0" name="op" style="display:none">
+                                            <button type="button" class="btn btn-danger" onclick="del({{line[0]}})">
+                                                删除
+                                            </button>
+                                        </form>
                                     </td>
                                     {% set outer_loop = loop %}
-                                    {% for dt in line %}
+                                    {% for dt in line[1:] %}
                                     <td>{{ dt }}</td>
                                     {% endfor %}
                                 </tr>
@@ -177,6 +195,7 @@ function expend_ziduan() {
         count1=1;
     }
 };
+
 var count2 = 1;
 function expend_shaixuan() {
     if (count1==1){
@@ -187,6 +206,17 @@ function expend_shaixuan() {
         count1=1;
     }
 };
+
+function del(id){
+    var res=confirm("请确认是否删除此条数据？");
+    if (res==true){
+        $.post('{{url_for("delete")}}',{'id':id},function(result){
+            alert(result);
+            window.location.href = '{{url_for("tables_data")}}';
+        });
+    };
+};
+
 
 
 </script>
@@ -199,11 +229,17 @@ function expend_shaixuan() {
             });
         });
 
+
+
+
 </script>
 <script type="text/javascript">
         $(document).ready(function() {
           $('#bootstrap-data-table-export').DataTable();
         } );
+
+
+
 
 
 </script>
