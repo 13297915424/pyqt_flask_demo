@@ -9,7 +9,11 @@ import xlwt, zipfile, xlrd
 
 abs_path = os.getcwd()
 app = Flask(__name__)
-URL, PORT = '0.0.0.0',6005 
+URL, PORT = '0.0.0.0',6005
+if not os.path.exists(os.path.join(os.getcwd(),'static','download_all')):
+    os.mkdir(os.path.join(os.getcwd(),'static','download_all'))
+if not os.path.exists(os.path.join(os.getcwd(),'static','download_cur')):
+    os.mkdir(os.path.join(os.getcwd(),'static','download_cur'))
 COLS = """name,date,companyname,username,userphone,userepl,companylocation,latlng,huanping,reportbook,reporttable,dengjitable,xianchangxiangfu,xianchangxiangfu_desc,yanshou,yanshou_desc,shengchangongyi,yuanliang,chengping,weixianping,wuranqingkuang,huanjingjijinyuyan,qingjiebianhao,wushuiqingkuang,dunwei,wushuichuligongyi,feiqiqingkuang,fengliang,feiqichuligongyi,wuni,youqi,jinshu,fenchen,feiqiwutianxiemingcheng,qitashuoming,zaoyinqingkuang,pianjian,PAC,PAM,tansuangai,chulinji,nalixianggaizao,zhushi,pic"""
 table_cols = """name,date,companyname,username,userphone,userepl,companylocation,latlng,huanping,reportbook,reporttable,dengjitable,xianchangxiangfu,yanshou,weixianping,wuranqingkuang,huanjingjijinyuyan,qingjiebianhao,wushuiqingkuang,dunwei,wushuichuligongyi,feiqiqingkuang,fengliang,feiqichuligongyi,wuni,youqi,jinshu,fenchen,feiqiwutianxiemingcheng,zaoyinqingkuang,pianjian,PAC,PAM,tansuangai,chulinji"""
 cols_table = """业务人员,日期,企业名称,业主姓名,业主电话,业主职务,企业地址,经纬度,环评情况,报告书,报告表,登记表,现场相符,验收情况,危险品,重点污染,环境应急预案,清洁生产,污水,吨位,污水处理,废气,风量,废气处理,污泥,油漆,金属,粉尘,废弃物,噪音,片碱,PAC,PAM,碳酸钙,除磷剂"""
@@ -283,7 +287,7 @@ def forms_advanced():
                 db.curse.execute("select * from mds_env_survey where ID='%s'"%ID)
                 data = list(db.curse.fetchone())
                 mutisel = data[-3].split(',')
-                pics = data[-1].split(',')
+                pics = data[-1].split(',') if data[-1] else []
                 gaizao = [1 if i in mutisel else 0 for i in ['环评', '预案', '清洁生产', '污水', '废气', '噪音']]
                 return render_template("forms-basic.html",data=data,gaizao=gaizao,pics=pics)
             elif request.form.get('op')=="1":
@@ -343,7 +347,8 @@ def forms_advanced():
                 zhushi = request.form.get('zhushi')
                 db = DB_Connector()
                 db.curse.execute("select pic from mds_env_survey where ID='%s'"%ID)
-                cur_pic = db.curse.fetchone()[0].split(',')
+                dt_pic = db.curse.fetchone()[0]
+                cur_pic = dt_pic.split(',') if dt_pic else []
                 print(cur_pic,request.form.get('del_pic').split('-'))
                 for del_pic in request.form.get('del_pic').split('-'):
                     if del_pic in cur_pic:
