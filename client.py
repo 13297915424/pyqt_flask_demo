@@ -9,7 +9,7 @@ import xlwt, zipfile, xlrd
 
 abs_path = os.getcwd()
 app = Flask(__name__)
-URL, PORT = 'localhost', 1518
+URL, PORT = '0.0.0.0',6005 
 COLS = """name,date,companyname,username,userphone,userepl,companylocation,latlng,huanping,reportbook,reporttable,dengjitable,xianchangxiangfu,xianchangxiangfu_desc,yanshou,yanshou_desc,shengchangongyi,yuanliang,chengping,weixianping,wuranqingkuang,huanjingjijinyuyan,qingjiebianhao,wushuiqingkuang,dunwei,wushuichuligongyi,feiqiqingkuang,fengliang,feiqichuligongyi,wuni,youqi,jinshu,fenchen,feiqiwutianxiemingcheng,qitashuoming,zaoyinqingkuang,pianjian,PAC,PAM,tansuangai,chulinji,nalixianggaizao,zhushi,pic"""
 table_cols = """name,date,companyname,username,userphone,userepl,companylocation,latlng,huanping,reportbook,reporttable,dengjitable,xianchangxiangfu,yanshou,weixianping,wuranqingkuang,huanjingjijinyuyan,qingjiebianhao,wushuiqingkuang,dunwei,wushuichuligongyi,feiqiqingkuang,fengliang,feiqichuligongyi,wuni,youqi,jinshu,fenchen,feiqiwutianxiemingcheng,zaoyinqingkuang,pianjian,PAC,PAM,tansuangai,chulinji"""
 cols_table = """业务人员,日期,企业名称,业主姓名,业主电话,业主职务,企业地址,经纬度,环评情况,报告书,报告表,登记表,现场相符,验收情况,危险品,重点污染,环境应急预案,清洁生产,污水,吨位,污水处理,废气,风量,废气处理,污泥,油漆,金属,粉尘,废弃物,噪音,片碱,PAC,PAM,碳酸钙,除磷剂"""
@@ -430,7 +430,7 @@ def wrong_tabledata():
 
 
 if __name__ == '__main__':
-    app.run('0.0.0.0',5577)
+    app.run(URL,PORT)
     # thread = threading.Thread(target=app.run, args=[URL, PORT])
     # thread.daemon = True
     # thread.start()
